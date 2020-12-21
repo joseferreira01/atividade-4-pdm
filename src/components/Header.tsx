@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
     backgroundColor:'#101010',
     flexDirection: 'row',
     alignItems:'center',
+    top:30,
     justifyContent: 'space-between',
     paddingRight: 20,
     paddingLeft: 20,
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
 
   },
   title:{
-
+    padding:10,
     color:'#FFF',
     fontSize:20,
     fontWeight:'bold',  
