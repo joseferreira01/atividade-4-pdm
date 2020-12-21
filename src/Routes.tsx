@@ -2,10 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack'
-import ListProjects from './pages/LiatProjects'
-import ProjectsRegister from './pages/ProjectsRegister'
-import ProductsDetales from './pages/ProjectsDetalhes';
 import Header from  './components/Header';
+import OrphanageData from './pages/CreateOrphanages/OrphanageData';
+import SelectMapPosition from './pages/CreateOrphanages/SelectMapPosition';
 
 // import { Container } from './styles';
 const {Navigator, Screen} = createStackNavigator();
@@ -14,19 +13,20 @@ const Routes: React.FC = () => {
     <NavigationContainer>
       
         <Navigator screenOptions={{headerShown:false}}>
-          <Screen 
-            name='ListProjects' component={ListProjects}  options={{
-            headerShown:true, 
-            header:()=><Header titulo='Lista Projetos'/>}}
-          />
-          <Screen
-           name='ProjectsDetales' component={ProductsDetales}  options={{
-            headerShown:true, 
-            header:()=><Header titulo='Detalhes Projetos'/>}}
-           />
-          <Screen name='ProjectsRegister' component={ProjectsRegister}  options={{
+        <Screen name='ProjectsRegister' component={ProjectsRegister}  options={{
             headerShown:true, 
             header:()=><Header titulo='Tela de Cadastro'/>}}/>
+          <Screen 
+            name='SelectMapPosition' component={SelectMapPosition}  options={{
+            headerShown:true, 
+            header:()=><Header titulo='Selecione Mapa'/>}}
+          />
+          <Screen
+           name='OrphanageDate' component={OrphanageData}  options={{
+            headerShown:true, 
+            header:()=><Header titulo='Informe os dados'/>}}
+           />
+          
         </Navigator>
         
        
