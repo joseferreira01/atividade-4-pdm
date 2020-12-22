@@ -3,7 +3,7 @@ import { Image, StatusBar } from 'react-native'
 import React, {  useState} from 'react'; 
 import {StyleSheet, Text, View, ScrollView,TextInput, TouchableOpacity, SafeAreaView} from 'react-native';
 import {TextInputMask} from 'react-native-masked-text';
-import { BorderlessButton } from 'react-native-gesture-handler';
+import { BorderlessButton, RectButton, Switch } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons'; 
 import * as ImagePicker from 'expo-image-picker';
 import { useRoute } from '@react-navigation/native';
@@ -17,11 +17,12 @@ export default function App(){
  
   
   async function handleSelectImages() {
-    const {status} = await ImagePicker.requestCameraPermissionsAsync();
+    const {status} = await ImagePicker.requestMediaLibraryPermissionsAsync();
     if(status != 'granted'){
       alert('permitir acesso a midia');
       return;
     }
+   
     const result = await ImagePicker.launchImageLibraryAsync({
       allowsEditing:true,
       quality:1,
@@ -85,10 +86,23 @@ export default function App(){
       </BorderlessButton>
     </TouchableOpacity>
     <Text style={styles.loginButtonBelowText1}>Visitação</Text>
+    <View style={styles.hairline} />
     <Text style={styles.label}>instruções</Text>
     <TextInput multiline style={styles.inputText2}></TextInput>
     <Text style={styles.label}>Horario de visitas</Text>
-    <View style={styles.container}></View>
+    <TextInput style={styles.inputText}></TextInput>
+    <View style={styles.container2}>
+      <Text style={styles.label}>Atende no fim de semana</Text>
+      <Switch style={styles.label}
+        thumbColor='#fff'
+        trackColor={{false:'#ccc',true:'#39cc83'}}
+      ></Switch>
+    </View>
+    <RectButton style={styles.iconbtnC} onPress={()=>{}}>
+    <Text style={styles.label3}>Cadastrar</Text>
+    </RectButton>
+    
+
 </ScrollView>
 
     )
@@ -111,6 +125,19 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',
     
+  },
+  iconbtnC:{
+    backgroundColor:"#00BFFF",
+    borderRadius:10,
+    alignSelf:'center',
+    justifyContent:'center',
+    width:360,
+    margin:20,
+    height:50
+  },
+  label3:{
+    alignSelf:'center',
+    color:'white'
   },
   previewFotos:{
     width:60,
