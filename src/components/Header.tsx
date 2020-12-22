@@ -16,32 +16,30 @@ const Header: React.FC<propHeader> = ({titulo}) => {
   return (
     <View style={styles.container}>
       <BorderlessButton onPress={goBackToListProducts}>
-        <Feather name="arrow-left" size={24} color="blue" />
+        <Feather name="arrow-left" size={25} color="#00BFFF" />
       </BorderlessButton>
       <Text style={styles.title}> {titulo} </Text>
+
+      <BorderlessButton onPress={goBackToListProducts}>
+        <Feather name="x" size={20} color="black" />
+      </BorderlessButton>
     </View>
   );
 }
 const styles = StyleSheet.create({
   container:{
-    backgroundColor:'#101010',
+    backgroundColor:'white',
     flexDirection: 'row',
     alignItems:'center',
-    justifyContent: 'space-between',
-    paddingRight: 20,
-    paddingLeft: 20,
-    borderWidth:2,
-    borderBottomColor: '#FFF'
-
+    justifyContent: 'space-around',
+    height:80,
+    elevation:5
   },
   title:{
-
-    color:'#FFF',
-    fontSize:20,
-    fontWeight:'bold',  
-    marginRight:100,
     
-
+    color:'black',
+    fontSize:15,
+    
   }
 })
 export default Header;

@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack'
-import ListProjects from './pages/LiatProjects'
+import OrfanageDetails from './pages/OrfanageDetails'
 import ProjectsRegister from './pages/ProjectsRegister'
 import ProductsDetales from './pages/ProjectsDetalhes';
 import Header from  './components/Header';
@@ -13,12 +13,13 @@ const Routes: React.FC = () => {
   return (
     <NavigationContainer>
       
-        <Navigator screenOptions={{headerShown:false}}>
+        <Navigator screenOptions={{headerShown:false, cardStyle:{backgroundColor:'#D3D3D3'}}}>
           <Screen 
-            name='ListProjects' component={ListProjects}  options={{
-            headerShown:true, 
-            header:()=><Header titulo='Lista Projetos'/>}}
-          />
+            name='OrfanageDetails' component={OrfanageDetails}  options={{
+              headerShown:true,
+              header:()=><Header titulo='Adicionar Orfanato'/>}}
+            
+              />
           <Screen
            name='ProjectsDetales' component={ProductsDetales}  options={{
             headerShown:true, 
